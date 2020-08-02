@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/IPersistence/pom.xml" />
+        <option value="$PROJECT_DIR$/IPersistence_test/pom.xml" />
+        <option value="$PROJECT_DIR$/mybatis-3-master/pom.xml" />
+        <option value="$PROJECT_DIR$/mybatis_quickStarter/pom.xml" />
+        <option value="$PROJECT_DIR$/mybatis_multitable/pom.xml" />
+        <option value="$PROJECT_DIR$/design_pattern/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" project-jdk-name="1.8" project-jdk-type="JavaSDK" />
+</project>
