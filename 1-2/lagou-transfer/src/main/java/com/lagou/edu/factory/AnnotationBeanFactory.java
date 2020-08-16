@@ -3,6 +3,7 @@ package com.lagou.edu.factory;
 import com.lagou.edu.utils.ClassUtils;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.ParameterizedType;
 import java.util.*;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
@@ -83,12 +84,12 @@ public class AnnotationBeanFactory implements BeanDefinitionRegistry, BeanFactor
                     Field field = fields[i];
                     Class<?> type = field.getType();
                     if (List.class.isAssignableFrom(type)) {
-                        List<String> strings = classBeanDefinitionMap.get(type.getName());
+                        List<String> strings = classBeanDefinitionMap.get(getGeneric(field));
                         value = strings.stream()
                                 .map(this::getBean)
                                 .collect(Collectors.toList());
                     } else if (Set.class.isAssignableFrom(type)) {
-                        List<String> strings = classBeanDefinitionMap.get(type.getName());
+                        List<String> strings = classBeanDefinitionMap.get(getGeneric(field));
                         value = strings.stream()
                                 .map(this::getBean)
                                 .collect(Collectors.toSet());
@@ -121,6 +122,10 @@ public class AnnotationBeanFactory implements BeanDefinitionRegistry, BeanFactor
 
     }
 
+    private String getGeneric(Field field) {
+        return ((Class) ((ParameterizedType) field.getGenericType()).getActualTypeArguments()[0]).getName();
+    }
+
     public void addBeanPostProcessor(BeanPostProcessor beanPostProcessor) {
         beanPostProcessors.add(beanPostProcessor);
     }
@@ -133,6 +138,8 @@ public class AnnotationBeanFactory implements BeanDefinitionRegistry, BeanFactor
                 Supplier<?> singletonFactory = this.beanFactories.get(beanName);
                 if (singletonFactory != null) {
                     bean = singletonFactory.get();
+                    this.beanFactories.remove(beanName);
+                    this.earlyBeans.put(beanName, bean);
                 }
             }
         }

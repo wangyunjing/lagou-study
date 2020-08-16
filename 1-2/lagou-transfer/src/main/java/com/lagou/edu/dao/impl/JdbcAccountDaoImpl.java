@@ -10,6 +10,7 @@ import com.lagou.edu.utils.ConnectionUtils;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.List;
 
 /**
  * @author 应癫
@@ -21,7 +22,7 @@ public class JdbcAccountDaoImpl implements AccountDao {
     private ConnectionUtils connectionUtils;
 
     @Autowired
-    TransferService transferService;
+    List<TransferService> transferService;
 
     @Override
     public Account queryAccountByCardNo(String cardNo) throws Exception {
