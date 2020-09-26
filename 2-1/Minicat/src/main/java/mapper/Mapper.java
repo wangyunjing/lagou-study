@@ -9,6 +9,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Matcher;
 
 /**
  * @author yunjing.wang
@@ -45,10 +46,10 @@ public class Mapper {
         Map<String, HttpServlet> servletMap = mappedContext.object.getServletMap();
         HttpServlet httpServlet = servletMap.get(url);
         if (httpServlet == null) {
-            url = url.replaceAll("/", File.separator);
+            url = url.replaceAll("/", Matcher.quoteReplacement(File.separator));
             String filepath = mappedHost.object.getAppBaseFile().getAbsolutePath()
                     + File.separator + mappedContext.name
-                    + File.separator + url;
+                    + url;
             httpServlet = new StaticHttpServlet(new File(filepath));
         }
 
