@@ -9,6 +9,7 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/lagou-study.iml" filepath="$PROJECT_DIR$/.idea/lagou-study.iml" />
       <module fileurl="file://$PROJECT_DIR$/1-2/lagou-transfer/lagou-transfer.iml" filepath="$PROJECT_DIR$/1-2/lagou-transfer/lagou-transfer.iml" />
       <module fileurl="file://$PROJECT_DIR$/1-3/mvc/mvc.iml" filepath="$PROJECT_DIR$/1-3/mvc/mvc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/2-2/spring-session/spring-session.iml" filepath="$PROJECT_DIR$/2-2/spring-session/spring-session.iml" />
       <module fileurl="file://$PROJECT_DIR$/1-3/sss/sss.iml" filepath="$PROJECT_DIR$/1-3/sss/sss.iml" />
     </modules>
   </component>
