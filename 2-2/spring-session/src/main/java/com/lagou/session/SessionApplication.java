@@ -24,6 +24,6 @@ public class SessionApplication implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(loginInterceptor)
-                .excludePathPatterns("/login");
+                .excludePathPatterns("/login", "/favicon.ico");
     }
 }
